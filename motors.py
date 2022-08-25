@@ -258,22 +258,22 @@ if __name__ == "__main__":
             #         pass
 
             # On keyboard press, safely exit the program
-            for event in pygame.event.get():
-                if event.type == pygame.KEYDOWN:
-                    print("Keydown Pressed") if debug else None
+        #     for event in pygame.event.get():
+        #         if event.type == pygame.KEYDOWN:
+        #             print("Keydown Pressed") if debug else None
                     
-                    #File saving
-                    dict_data  = {'timeStamp' : timeStamps, 'IR1' : IR1, 'IR2' : IR2, 'ACTION' : action}
-                    df = pd.DataFrame(dict_data)
+        #             #File saving
+        #             dict_data  = {'timeStamp' : timeStamps, 'IR1' : IR1, 'IR2' : IR2, 'ACTION' : action}
+        #             df = pd.DataFrame(dict_data)
                     
-                    #Saving the dataframe
-                    df.to_csv('DataSamples/data_ir.csv',index=False)
-                    flag = True
+        #             #Saving the dataframe
+        #             df.to_csv('DataSamples/data_ir.csv',index=False)
+        #             flag = True
                 
-                    break
+        #             break
             
-            if flag:
-                break
+        #     if flag:
+        #         break
 
                 
     except Exception as e:

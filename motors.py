@@ -49,7 +49,7 @@ debug = False
 
 #to use with sensor driven:manual or ai driven:auto
 modes = ["manual","auto"]
-mode = modes[0]
+mode = modes[1]
 
 def setup():
     # Set PWM Pin with frequency of 1khz
@@ -224,18 +224,21 @@ if __name__ == "__main__":
                         movement("FORWARD",Right_PWM,Left_PWM,Right_CW,Left_CW,Right_CCW,Left_CCW,R_PWM_value = FORWARD_SPEED,L_PWM_value=FORWARD_SPEED)
             elif(mode == "auto"):
                 ret, frame = vid.read()
-                result = predict(frame, model_path="C:\Users\wasim\line-following\autonomous_vehicle\models\model_1\converted_tflite\vww_96_grayscale_quantized.tflite")
+                result = predict(frame, model_path="models\model_1\model1.tflite")
 
                 if result == 0:
-                        movement("FORWARD",Right_PWM,Left_PWM,Right_CW,Left_CW,Right_CCW,Left_CCW,R_PWM_value = FORWARD_SPEED,L_PWM_value=FORWARD_SPEED)
+                        print(result)
+                        # movement("FORWARD",Right_PWM,Left_PWM,Right_CW,Left_CW,Right_CCW,Left_CCW,R_PWM_value = FORWARD_SPEED,L_PWM_value=FORWARD_SPEED)
                 elif result == 1:
-                        movement("RIGHT",Right_PWM,Left_PWM,Right_CW,Left_CW,Right_CCW,Left_CCW,R_PWM_value = SIDE_SPEED,L_PWM_value=SIDE_SPEED)
-                        time.sleep(delay_in_turn*2)
+                        print(result)
+                        # movement("RIGHT",Right_PWM,Left_PWM,Right_CW,Left_CW,Right_CCW,Left_CCW,R_PWM_value = SIDE_SPEED,L_PWM_value=SIDE_SPEED)
+                        # time.sleep(delay_in_turn*2)
                 elif result == 2:
-                        movement("LEFT",Right_PWM,Left_PWM,Right_CW,Left_CW,Right_CCW,Left_CCW,R_PWM_value = SIDE_SPEED,L_PWM_value=SIDE_SPEED)
-                        time.sleep(delay_in_turn*2)
+                        print(result)
+                        # movement("LEFT",Right_PWM,Left_PWM,Right_CW,Left_CW,Right_CCW,Left_CCW,R_PWM_value = SIDE_SPEED,L_PWM_value=SIDE_SPEED)
+                        # time.sleep(delay_in_turn*2)
                 else:
-                        movement("STOP",Right_PWM,Left_PWM,Right_CW,Left_CW,Right_CCW,Left_CCW,R_PWM_value = 0,L_PWM_value=0)
+                        print(result)
 
 
                 

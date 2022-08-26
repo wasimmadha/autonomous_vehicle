@@ -2,6 +2,7 @@ import pandas as pd
 import warnings
 import os
 
+stop_df = pd.DataFrame()
 def warn(*args, **kwargs):
     pass
 warnings.warn = warn
